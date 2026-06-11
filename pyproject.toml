@@ -1,0 +1,53 @@
+# MediScan-AI - Lightweight Local Medical Text Intelligence Analysis Engine
+# Copyright (c) 2026 gitstq. MIT License.
+
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mediscan-ai"
+version = "1.0.0"
+description = "Lightweight Local Medical Text Intelligence Analysis Engine | 轻量级本地医疗文本智能分析引擎"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+authors = [
+    {name = "gitstq"}
+]
+keywords = ["medical", "nlp", "pii", "deidentification", "clinical", "chinese", "ner", "healthcare"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Healthcare Industry",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Text Processing :: Linguistic",
+]
+dependencies = [
+    "flask>=3.0.0",
+    "jieba>=0.42.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+]
+web = [
+    "flask>=3.0.0",
+]
+
+[project.scripts]
+mediscan = "mediscan.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["mediscan*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
